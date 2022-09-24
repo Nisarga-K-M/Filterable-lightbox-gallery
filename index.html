@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>filterable responsive lightbox gallery tutorial</title>
+
+    <!-- magnific-popup css cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div class="logo">
+       <h3>~Nisarga</h3>
+       <h2>Filerable Responsive Gallery</h2>
+    </div>
+
+
+<div class="gallery">
+
+    <ul class="controls">
+        <li class="buttons active" data-filter="all">all</li>
+        <li class="buttons" data-filter="ice-cream">ice-cream</li>
+        <li class="buttons" data-filter="chocolate">chocolate</li>
+        <li class="buttons" data-filter="cake">cake</li>
+        <li class="buttons" data-filter="juice">juice</li>
+        <li class="buttons" data-filter="sandwich">sandwich</li>
+    </ul>
+
+    <div class="image-container">
+
+        <a href="images/icecream1.jpg" class="image ice-cream">
+            <img src="images/icecream1.jpg" alt="">
+        </a>
+        <a href="images/chocolate-ice-cream-dessert.jpg" class="image ice-cream">
+            <img src="images/chocolate-ice-cream-dessert.jpg" alt="">
+        </a>
+        <a href="images/pistachio-ice-cream-isolated-white-background.jpg" class="image ice-cream">
+            <img src="images/pistachio-ice-cream-isolated-white-background.jpg" alt="">
+        </a>
+
+        <a href="images/chocho3.png" class="image chocolate">
+            <img src="images/chocho3.png" alt="">
+        </a>
+        <a href="images/chocolate-bars-cocoa-beans-powder-grunge-background.jpg" class="image chocolate">
+            <img src="images/chocolate-bars-cocoa-beans-powder-grunge-background.jpg" alt="">
+        </a>
+
+        <a href="images/cupcakes.jpg" class="image cake">
+            <img src="images/cupcakes.jpg" alt="">
+        </a>
+        <a href="images/wedding-cake-with-color-flores.jpg" class="image cake">
+            <img src="images/wedding-cake-with-color-flores.jpg" alt="">
+        </a>
+        <a href="images/fruits-cake.jpg" class="image cake">
+            <img src="images/fruits-cake.jpg" alt="">
+        </a>
+        <a href="images/cake4.png" class="image cake">
+            <img src="images/cake4.png" alt="">
+        </a>
+        <a href="images/cake5.png" class="image cake">
+            <img src="images/cake5.png" alt="">
+        </a>
+
+        <a href="images/fresh-orange-juice-glass-dark-background.jpg" class="image juice">
+            <img src="images/fresh-orange-juice-glass-dark-background.jpg" alt="">
+        </a>
+        <a href="images/Annotation 2022-09-24 130447.png" class="image juice">
+            <img src="images/Annotation 2022-09-24 130447.png" alt="">
+        </a>
+        <a href="images/juice3.png" class="image juice">
+            <img src="images/juice3.png" alt="">
+        </a>
+
+        <a href="images/sandwitch1.png" class="image sandwich">
+            <img src="images/sandwitch1.png" alt="">
+        </a>
+        <a href="images/sandwitch2.png" class="image sandwich">
+            <img src="images/sandwitch2.png" alt="">
+        </a>
+        <a href="images/sandwitch3.png" class="image sandwich">
+            <img src="images/sandwitch3.png" alt="">
+        </a>
+        <a href="images/sandwitch4.png" class="image sandwich">
+            <img src="images/sandwitch4.png" alt="">
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- jquery cdn link  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- magnific popup js cdn link  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+
+<script>
+
+$(document).ready(function(){
+
+    $('.buttons').click(function(){
+
+        $(this).addClass('active').siblings().removeClass('active');
+
+        var filter = $(this).attr('data-filter')
+
+        if(filter == 'all'){
+            $('.image').show(400);
+        }else{
+            $('.image').not('.'+filter).hide(200);
+            $('.image').filter('.'+filter).show(400);
+        }
+
+    });
+
+    $('.gallery').magnificPopup({
+
+        delegate:'a',
+        type:'image',
+        gallery:{
+            enabled:true
+        }
+
+    });
+
+});
+
+</script>
+    
+</body>
+</html>
